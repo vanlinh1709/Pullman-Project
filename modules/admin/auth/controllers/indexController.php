@@ -18,15 +18,16 @@ function indexPostAction() {
     $password = $_POST['password'];
     if (empty($username) || empty($password)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ thông tin tài khoản và mật khẩu']);
-        header('Location: /shop.projectmvc.vn/?role=admin&mod=auth');
+        header('Location: /Nhom_7_DA1/?role=admin&mod=auth');
     }
     // xử lý đăng nhập
     $auth = get_auth_user($username, $password);
     if ($auth) {
         push_auth($auth);
-        header('Location: /shop.projectmvc.vn/?role=admin');
+//        echo '1';
+        header('Location: /Nhom_7_DA1/?role=admin');
     } else {
         push_notification('danger', ['Tài khoản hoặc mật khẩu không chính xác']);
-        header('Location: /shop.projectmvc.vn/?role=admin&mod=auth');
+        header('Location: /Nhom_7_DA1/?role=admin&mod=auth');
     }
 }
