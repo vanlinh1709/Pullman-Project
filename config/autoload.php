@@ -16,7 +16,7 @@ defined('APPPATH') OR exit('Không được quyền truy cập phần này');
  * ------------------------------------------------------------------
  * Autoload Libraries
  * ------------------------------------------------------------------
- * Ví dụ:
+ * Ví dụ: 
  * $autoload['lib'] = array('validation', 'pagging');
  */
 
@@ -30,6 +30,7 @@ $autoload['lib'] = array();
  * Ví dụ:
  * $autoload['helper'] = array('data','string');
  */
+
 
 $autoload['helper'] = array('data');
 
