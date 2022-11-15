@@ -11,14 +11,13 @@
  * 
  */
 
-$config['base_url'] = "http://localhost/projectmvc.vn";
+$config['base_url'] = "http://localhost/shop.projectmvc.vn";
+
 
 $config['default_role'] = 'client';
 $config['default_module'] = 'home';
 $config['default_controller'] = 'index';
 $config['default_action'] = 'index';
-
-
 
 
 

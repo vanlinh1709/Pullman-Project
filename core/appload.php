@@ -5,7 +5,7 @@ defined('APPPATH') OR exit('Không được quyền truy cập phần này');
 require CONFIGPATH . DIRECTORY_SEPARATOR . 'database.php';
 
 // Include file config/config
-require CONFIGPATH . DIRECTORY_SEPARATOR . 'config.php';
+require CONFIGPATH . DIRECTORY_SEPARATOR . 'config.php'; 
 
 // Include file config/email
 require CONFIGPATH . DIRECTORY_SEPARATOR . 'email.php';
@@ -21,6 +21,8 @@ require LIBPATH . DIRECTORY_SEPARATOR . 'database.php';
 require COREPATH . DIRECTORY_SEPARATOR . 'base.php';
 
 
+
+
 if (is_array($autoload)) {
     foreach ($autoload as $type => $list_auto) {
         if (!empty($list_auto)) {
@@ -31,9 +33,11 @@ if (is_array($autoload)) {
     }
 }
 
+
+
 //
 //connect db
-pdo_get_connection();
+db_connect($db);
 
 require COREPATH . DIRECTORY_SEPARATOR . 'router.php';
 

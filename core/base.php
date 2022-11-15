@@ -6,7 +6,7 @@ session_start();
 // get Controller name
 function get_controller() {
     global $config;
-    $controller = isset($_GET['a']) ? $_GET['controller'] : $config['default_controller'];
+    $controller = isset($_GET['controller']) ? $_GET['controller'] : $config['default_controller'];
     return $controller;
 }
 
