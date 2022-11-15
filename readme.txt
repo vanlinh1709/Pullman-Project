@@ -1,0 +1,1 @@
+http://localhost/projectmvc.vn/?mod=users&controller=index&action=index
