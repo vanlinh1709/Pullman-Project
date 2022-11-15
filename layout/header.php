@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Upload file Ajax</title>
+        <title>Pullman.vn</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="public/js/customs.js" type="text/javascript"></script>
         <meta charset="utf-8">
