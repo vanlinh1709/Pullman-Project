@@ -1,0 +1,77 @@
+<?php get_header('', 'Chỉnh sửa tài khoản') ?>
+
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-2">
+                <!--begin::Page Title-->
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Chỉnh sửa tài khoản</h5>
+                <!--end::Page Title-->
+            </div>
+            <!--end::Info-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Form thông tin tài khoản đang chỉnh sửa</h3>
+                </div>
+                <!--begin::Form-->
+                <form method="POST" action="">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Tên tài khoản</label>
+                            <input type="text" value="<?php echo $user['fullname']?>" name="fullname" class="form-control" placeholder="Nhập vào tên tài khoản" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="<?php echo $user['email']?>" name="email" class="form-control" placeholder="Nhập vào email" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu</label>
+                            <input type="password" value="<?php echo $user['password']?>" name="password" class="form-control" placeholder="Nhập mật khẩu" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" value="<?php echo $user['phone_number']?>" name="phonenumber" class="form-control" placeholder="Nhập vào số điện thoại" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" value="<?php echo $user['address']?>" name="address" class="form-control" placeholder="Nhập vào địa chỉ" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Vai trò</label>
+                            <input type="text" value="<?php echo $user['role_id']?>" name="role_id" class="form-control" placeholder="Nhập vào vai trò của tài khoản" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh đại diện</label>
+                            <input type="file" value="<?php echo $user['avatar']?>" name="name" class="form-control" placeholder="" />
+                            <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary mr-2">Cập nhập</button>
+                        <button type="reset" class="btn btn-secondary">Làm lại</button>
+                        <a href="http://localhost/Nhom_7_DA1/?role=admin&mod=users" class="btn btn-default">Quay về</a>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Card-->
+        </div>
+        <!--end::Container-->
+    </div><!--end::Entry-->
+<?php get_footer() ?>
