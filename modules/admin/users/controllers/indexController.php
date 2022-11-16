@@ -16,15 +16,6 @@ function createAction() {
     load_view('create');
 }
 function createPostAction() {
-//    if(isset($_POST)) {
-//        $name =  $_POST['name'] ;
-//        $email = $_POST['email'] ;
-//        $age = $_POST['age'] ;
-//        $earn = $_POST['earn'] ;
-//        createUser($name, $email, $age, $earn);
-//    }
-//    header('location: http://localhost/pullman.vn/?mod=users&controller=user&action=showUsers');
-//    var_dump($_POST);
     $name = $_POST['fullname'];
     $email = $_POST['email'];
     $phone_number = $_POST['phonenumber'];
