@@ -13,18 +13,39 @@ function indexAction() {
     load_view('index', $data);
 }
 
-function addAction() {
-    echo "Thêm dữ liệu";
+function createAction() {
+    load_view('create');
+//    if(isset($_POST)) {
+//        $name =  $_POST['name'] ;
+//        $email = $_POST['email'] ;
+//        $age = $_POST['age'] ;
+//        $earn = $_POST['earn'] ;
+//        createUser($name, $email, $age, $earn);
+//    }
+//    header('location: http://localhost/pullman.vn/?mod=users&controller=user&action=showUsers');
+}
+function deleteUserAction() {
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        deleteUser($id);
+    }
+    header('location: http://localhost/pullman.vn/?mod=users&controller=user&action=showUsers');
 }
 
-function editAction() {
-    $id = (int)$_GET['id'];
-    $item = get_user_by_id($id);
-    show_array($item);
+function showFormAction($id) {
+    return get_user_by_id($id);
+}
+function updateUserAction() {
+//    echo '1';
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $name =  $_POST['name'] ;
+        $email = $_POST['email'] ;
+        $age = $_POST['age'] ;
+        $earn = $_POST['earn'] ;
+//        var_dump($earn);
+        updateUser($id, $name, $email, $age, $earn);
+    }
+    header('location: http://localhost/pullman.vn/?mod=users&controller=user&action=showUsers');
 }
 
-function testAction() {
-    $data = [];
-    $data['title'] = "Nguyễn Văn A";
-    load_view('test', $data);
-}

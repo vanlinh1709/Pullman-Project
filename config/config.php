@@ -11,8 +11,8 @@
  * 
  */
 
-$config['base_url'] = "http://localhost/shop.projectmvc.vn";
-
+$config['base_url'] = "http://localhost/Nhom_7_DA1.vn";
+const BASE_URL = "http://localhost/Nhom_7_DA1.vn";
 
 $config['default_role'] = 'client';
 $config['default_module'] = 'home';
