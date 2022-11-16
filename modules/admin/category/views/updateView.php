@@ -28,17 +28,14 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Tên danh mục</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nhập vào tên danh mục" value="<?php echo $category['name'] ?>" />
+                            <input type="text" name="name" class="form-control" placeholder="Nhập vào tên danh mục" value="<?php echo $category['cate_name'] ?>" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
-                        <div class="form-group mb-1">
-                            <label for="descriptionCategoryInput">Mô tả danh mục</label>
-                            <textarea name="description" class="form-control" id="descriptionCategoryInput" rows="3"><?php echo $category['description'] ?></textarea>
-                        </div>
+
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Chỉnh sửa</button>
-                        <a href="/?role=admin&mod=category" class="btn btn-default">Quay về</a>
+                        <a href="http://localhost/Nhom_7_DA1/?role=admin&mod=category" class="btn btn-default">Quay về</a>
                     </div>
                 </form>
                 <!--end::Form-->
