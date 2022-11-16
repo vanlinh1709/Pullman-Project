@@ -29,12 +29,12 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Tên tài khoản</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nhập vào tên tài khoản" />
+                            <input type="text" name="fullname" class="form-control" placeholder="Nhập vào tên tài khoản" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="fullname" class="form-control" placeholder="Nhập vào email" />
+                            <input type="email" name="email" class="form-control" placeholder="Nhập vào email" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">

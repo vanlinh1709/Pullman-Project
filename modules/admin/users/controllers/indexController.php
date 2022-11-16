@@ -12,9 +12,10 @@ function indexAction() {
     $data['list_users'] = $list_users;
     load_view('index', $data);
 }
-
 function createAction() {
     load_view('create');
+}
+function createPostAction() {
 //    if(isset($_POST)) {
 //        $name =  $_POST['name'] ;
 //        $email = $_POST['email'] ;
@@ -23,6 +24,24 @@ function createAction() {
 //        createUser($name, $email, $age, $earn);
 //    }
 //    header('location: http://localhost/pullman.vn/?mod=users&controller=user&action=showUsers');
+//    var_dump($_POST);
+    $name = $_POST['fullname'];
+    $email = $_POST['email'];
+    $phone_number = $_POST['phonenumber'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $role_id = $_POST['role_id'];
+    $avatar = $_POST['avatar'];
+
+    if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
+        empty($role_id)) {
+        push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
+        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users&action=create');
+        die();
+    }
+    createUser($name, $email, $phone_number, $address, $password, $role_id, $avatar);
+    push_notification('success', ['Tạo mới tài khoản thành công']);
+    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
 }
 function deleteUserAction() {
     if(isset($_GET['id'])) {

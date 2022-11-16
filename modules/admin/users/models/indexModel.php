@@ -10,9 +10,9 @@ function get_user_by_id($id) {
     return pdo_query_one($sql, $id);
 
 }
-function createUser($name, $email, $age, $earn) {
-    $sql = 'INSERT INTO users(fullname, email, age, earn) VALUES(?, ?, ?, ?)';
-    pdo_execute($sql, $name, $email, $age, $earn);
+function createUser($name, $email, $phone_number, $address, $password, $role_id, $avatar) {
+    $sql = 'INSERT INTO users(fullname, email, phone_number, address, password, role_id, avatar) VALUES(?, ?, ?, ?, ?, ?, ?)';
+    pdo_execute($sql,$name, $email, $phone_number, $address, $password, $role_id, $avatar);
 }
 function deleteUser($id) {
     $sql = 'DELETE FROM users WHERE id = ?';
