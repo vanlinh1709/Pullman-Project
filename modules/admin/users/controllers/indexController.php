@@ -86,7 +86,7 @@ function updatePostAction() {
     }
     updateUser($id ,$name, $email, $phone_number, $address, $password, $role_id, $avatar);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=user');
+    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
 }
 
 
