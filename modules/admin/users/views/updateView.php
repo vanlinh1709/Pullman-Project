@@ -24,7 +24,7 @@
                     <h3 class="card-title">Form thông tin tài khoản đang chỉnh sửa</h3>
                 </div>
                 <!--begin::Form-->
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Tên tài khoản</label>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group">
                             <label>Ảnh đại diện</label>
-                            <input type="file" value="<?php echo $user['avatar']?>" name="name" class="form-control" placeholder="" />
+                            <input type="file" value="<?php echo $user['avatar']?>" name="avatar" class="form-control" placeholder="" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                     </div>

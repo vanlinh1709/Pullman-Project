@@ -22,7 +22,7 @@ function createPostAction() {
     $address = $_POST['address'];
     $password = $_POST['password'];
     $role_id = $_POST['role_id'];
-    $avatar = $_POST['avatar'];
+    $avatar = $_FILES['avatar'];
 
     if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
         empty($role_id)) {
@@ -30,7 +30,13 @@ function createPostAction() {
         header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users&action=create');
         die();
     }
-    createUser($name, $email, $phone_number, $address, $password, $role_id, $avatar);
+//    echo __FILE__;
+//    var_dump($avatar['name']);
+//    die();
+    if (isset($avatar)) {
+        move_uploaded_file($avatar['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/user/" . $avatar['name']);
+    }
+    createUser($name, $email, $phone_number, $address, $password, $role_id, $avatar['name']);
     push_notification('success', ['Tạo mới tài khoản thành công']);
     header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
 }
@@ -68,12 +74,19 @@ function updatePostAction() {
     $address = $_POST['address'];
     $password = $_POST['password'];
     $role_id = $_POST['role_id'];
-    $avatar = $_POST['avatar'];
+    $avatar = $user['avatar'];
+//    var_dump($avatar);
+//    die();
+    //validate
     if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
         empty($role_id)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
         header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users&action=update');
         die();
+    }
+    if($_FILES['avatar']['name'] != '') {
+        $avatar = $_FILES['avatar']['name'];
+        move_uploaded_file($_FILES['avatar']['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/user/" . $avatar);
     }
     updateUser($id ,$name, $email, $phone_number, $address, $password, $role_id, $avatar);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);

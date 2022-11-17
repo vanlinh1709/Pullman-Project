@@ -25,7 +25,7 @@
                     <h3 class="card-title">Form thông tin tài khoản mới</h3>
                 </div>
                 <!--begin::Form-->
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Tên tài khoản</label>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label>Ảnh đại diện</label>
-                            <input type="file" name="name" class="form-control" placeholder="" />
+                            <input type="file" name="avatar" class="form-control" placeholder="" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                     </div>

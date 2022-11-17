@@ -24,7 +24,7 @@
                     <h3 class="card-title">Form thông tin sản phẩm</h3>
                 </div>
                 <!--begin::Form-->
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="card-body">
 
                         <div class="form-group">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label>Ảnh đại diện của sản phẩm</label>
-                            <input type="file" name="thumbnail" class="form-control"/>
+                            <input type="file" name="thumbnail" value="<?php $product['thumbnail']?>" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <div class="form-group green-border-focus">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary mr-2">Tạo mới</button>
+                        <button type="submit" class="btn btn-primary mr-2">Cập nhập</button>
                         <button type="reset" class="btn btn-secondary">Làm lại</button>
                         <a href="http://localhost/Nhom_7_DA1/?role=admin&mod=users" class="btn btn-default">Quay về</a>
                     </div>

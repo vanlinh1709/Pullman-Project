@@ -112,16 +112,16 @@ x1
                         <tr>
                             <th title="Field #1">ID</th>
                             <th title="Field #2">Họ và tên</th>
-                            <th title="Field #2">Email</th>
-                            <th title="Field #2">Mật khẩu</th>
+                            <th title="Field #3">Email</th>
+                            <th title="Field #4">Mật khẩu</th>
                             <th title="Field #5">Chức năng</th>
-                            <th title="Field #2">Số điện thoại</th>
-                            <th title="Field #2">Địa chỉ</th>
-                            <th title="Field #2">Vai trò</th>
-                            <th title="Field #2">Ảnh đại diện</th>
-                            <th title="Field #3">Ngày tạo</th>
-                            <th title="Field #4">Người tạo</th>
-                            <th title="Field #5">Mô tả</th>
+                            <th title="Field #6">Số điện thoại</th>
+                            <th title="Field #7">Địa chỉ</th>
+                            <th title="Field #8">Vai trò</th>
+                            <th title="Field #9">Ảnh đại diện</th>
+                            <th title="Field #10">Ngày tạo</th>
+                            <th title="Field #11">Ngày chỉnh sửa</th>
+                            <th title="Field #12">Mô tả</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -160,7 +160,7 @@ x1
                                 <td><?php echo ($user['address']) ?></td>
                                 <td><?php echo ($user['role_id'] == 1 ? 'User' : 'Admin') ?></td>
                                 <!--                                --><?php //var_dump(__FILE__);?>
-                                <td><img src= "http://localhost/Nhom_7_DA1/public/uploads/thumbnailUser/men.png" alt="thumbnail" width="100" height="100"></td>
+                                <td><img src= "http://localhost/Nhom_7_DA1/public/uploads/images/user/<?php echo $user['avatar']?>" alt="thumbnail" width="100" height="100"></td>
                                 <td><?php echo ($user['created_at']) ?></td>
                                 <td><?php echo ($user['updated_at']) ?></td>
                                 <td><?php echo 'abc' ?></td>

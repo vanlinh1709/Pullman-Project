@@ -25,7 +25,7 @@ function createPostAction() {
     $price = $_POST['price'];
     $number = $_POST['number'];
     $promo_price = $_POST['promo_price'];
-    $thumbnail = $_POST['thumbnail'];
+    $thumbnail = $_FILES['thumbnail'];
     $des = $_POST['des'];
     $status = $_POST['status'];
     if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
@@ -34,7 +34,10 @@ function createPostAction() {
         header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
         die();
     }
-    createProduct($category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail,$des,$status);
+    if (isset($thumbnail)) {
+        move_uploaded_file($thumbnail['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/product/" . $thumbnail['name']);
+    }
+    createProduct($category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail['name'],$des,$status);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
     header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
 }
@@ -75,14 +78,18 @@ function updatePostAction() {
     $price = $_POST['price'];
     $number = $_POST['number'];
     $promo_price = $_POST['promo_price'];
-    $thumbnail = $_POST['thumbnail'];
+    $thumbnail = $product['thumbnail'];
     $des = $_POST['des'];
     $status = $_POST['status'];
-    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
-        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
-        push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
-        die();
+//    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
+//        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
+//        push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
+//        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
+//        die();
+//    }
+    if($_FILES['thumbnail']['name'] != '') {
+        $thumbnail = $_FILES['thumbnail']['name'];
+        move_uploaded_file($_FILES['thumbnail']['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/product/" . $thumbnail);
     }
     updateProduct($id ,$category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail,$des,$status);
     push_notification('success', ['Chỉnh sửa sản phẩm thành công']);

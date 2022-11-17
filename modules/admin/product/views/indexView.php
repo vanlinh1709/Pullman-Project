@@ -119,9 +119,8 @@
                                 <td><?php echo ($product['promo_price']) ?></td>
                                 <td><?php echo ($product['view']) ?></td>
                                 <td>
-                                    <img src="./public/uploads/product/<?php echo ($product['thumbnail'])?>" height="100"
+                                    <img src="./public/uploads/images/product/<?php echo ($product['thumbnail'])?>" height="100"
                                     width="100">
-
                                 </td>
                                 <td><?php echo ($product['description']) ?></td>
                                 <td><?php echo ($product['status'] == 1 ? 'Còn hàng' : 'Hết hàng') ?></td>
