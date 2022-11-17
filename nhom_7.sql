@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2022 at 09:06 AM
+-- Generation Time: Nov 17, 2022 at 11:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -183,9 +183,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `title`, `price`, `number`, `promo_price`, `view`, `thumbnail`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Giày Nike Air Zoom Winflo 8', 2200000, 5, 2000000, 1, 'product-6.jpg', 'Đầu tiên sẽ là mẫu giày air zoom winflo 8, đây là mẫu giày chạy bộ unisex (cho cả nam và nữ) với trọng lượng chỉ chưa đến 300 gram (bản nam) và 238 gram (bản nữ) thì rõ ràng rất tuyệt cho việc chạy bộ rồi. Lưới thoáng khí ở mũi giày và Flywire giúp thoải mái khi chạy vì nhiệt tăng cao trong giày.', 1, '2022-11-16 15:41:41', '2022-11-16 15:41:41'),
-(58, 1, 1, 'Food', 12, 12, 1, NULL, 'men.png', '12', 0, '2022-11-17 13:28:33', NULL),
-(59, 1, 1, 'Giày thể thao nam Adidas 1', 121, 31, 11, NULL, 'men.png', 'Đẹp 1', 1, '2022-11-17 13:51:04', NULL);
+(1, 1, 1, 'Giày Nike Air Zoom Winflo 8', 2200000, 5, 2000000, NULL, 'cart-2.jpg', 'Đầu tiên sẽ là mẫu giày air zoom winflo 8, đây là mẫu giày chạy bộ unisex (cho cả nam và nữ) với trọng lượng chỉ chưa đến 300 gram (bản nam) và 238 gram (bản nữ) thì rõ ràng rất tuyệt cho việc chạy bộ rồi. Lưới thoáng khí ở mũi giày và Flywire giúp thoải mái khi chạy vì nhiệt tăng cao trong giày.', 1, '2022-11-16 15:41:41', '2022-11-16 15:41:41'),
+(58, 1, 1, 'Food', 12, 12, 1, NULL, 'cart-1.jpg', '12', 0, '2022-11-17 13:28:33', NULL),
+(59, 1, 1, 'Giày thể thao nam Adidas 1', 121, 31, 11, NULL, 'Làm gì khi vừa nhận dự án.png', 'Đẹp 1', 1, '2022-11-17 13:51:04', NULL),
+(61, 1, 1, '', 0, 0, 0, NULL, 'men.png', '', 1, '2022-11-17 17:21:49', NULL),
+(62, 1, 1, '', 0, 0, 0, NULL, '', '', 1, '2022-11-17 17:22:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,8 +281,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `phone_number`, `address`, `password`, `role_id`, `created_at`, `updated_at`, `avatar`) VALUES
 (1, 'Trần Văn Linh', 'linh@gmail.com', '012', 'Hà Nội', '123', 2, '2022-11-15 19:19:53', '2022-11-15 19:19:53', NULL),
-(24, 'thangnl', 'thang@gmail.com', '123', 'Quảng ninh', '123', 2, '2022-11-16 16:33:35', '2022-11-16 16:33:35', NULL),
-(25, 'vietnam', 'linhtvph18589@fpt.edu.vn', '123', 'Quảng ninh', '123', 1, '2022-11-16 22:23:34', '2022-11-16 22:23:34', NULL);
+(24, 'Nguyễn Lương Thắng', 'thang@gmail.com', '123', 'Quảng ninh', '123', 2, '2022-11-16 16:33:35', '2022-11-16 16:33:35', NULL),
+(25, 'vietnam', 'linhtvph18589@fpt.edu.vn', '123', 'Quảng ninh', '123', 1, '2022-11-16 22:23:34', '2022-11-16 22:23:34', 'men.png'),
+(46, '', '', '', '', '', 1, '2022-11-17 16:50:46', '2022-11-17 16:50:46', 'cart-2.jpg'),
+(47, '', '', '', '', '', 2, '2022-11-17 16:51:28', '2022-11-17 16:51:28', 'cart-1.jpg'),
+(49, '', '', '', '', '', 1, '2022-11-17 17:00:50', '2022-11-17 17:00:50', 'cart-2.jpg');
 
 --
 -- Indexes for dumped tables
@@ -444,7 +449,7 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `product_gallery`
@@ -480,7 +485,7 @@ ALTER TABLE `subbanner`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Constraints for dumped tables
