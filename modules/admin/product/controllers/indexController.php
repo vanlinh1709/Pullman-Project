@@ -13,41 +13,48 @@ function indexAction() {
     load_view('index', $data);
 }
 function createAction() {
-    load_view('create');
+    $data['list_cates'] = get_list_categories();
+    $data['list_brands']= get_list_brands();
+    load_view('create', $data);
 }
 function createPostAction() {
-    $name = $_POST['fullname'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phonenumber'];
-    $address = $_POST['address'];
-    $password = $_POST['password'];
-    $role_id = $_POST['role_id'];
-    $avatar = $_POST['avatar'];
-
-    if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
-        empty($role_id)) {
+//    var_dump($_POST);
+    $name = $_POST['name'];
+    $category_id = $_POST['category_id'];
+    $brand_id = $_POST['brand_id'];
+    $price = $_POST['price'];
+    $number = $_POST['number'];
+    $promo_price = $_POST['promo_price'];
+    $thumbnail = $_POST['thumbnail'];
+    $des = $_POST['des'];
+    $status = $_POST['status'];
+    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
+        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products&action=create');
+        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
         die();
     }
-    createProduct($name, $email, $phone_number, $address, $password, $role_id, $avatar);
-    push_notification('success', ['Tạo mới tài khoản thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products');
+    createProduct($category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail,$des,$status);
+    push_notification('success', ['Tạo mới sản phẩm thành công']);
+    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
 }
 function deleteAction() {
     $id = $_GET['id_product'];
     deleteProduct($id);
-    push_notification('success', ['Xoá danh mục tài khoản thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products');
+    push_notification('success', ['Xoá sản phẩm  thành công']);
+    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
 }
 
-function showFormAction($id) {
-    return get_product_by_id($id);
-}
 function updateAction() {
     $id = $_GET['id_product'];
     $product = get_product_by_id($id);
+    $categoryOfProduct = get_category0fProduct_by_id($id);
+    $brandOfProduct = get_brandOfProduct_by_id($id);
     $data['product'] = $product;
+    $data['categoryOfProduct'] = $categoryOfProduct;
+    $data['brandOfProduct'] = $brandOfProduct;
+    $data['list_cates'] = get_list_categories();
+    $data['list_brands']= get_list_brands();
     if ($product) {
         load_view('update', $data);
     } else {
@@ -62,22 +69,24 @@ function updatePostAction() {
         header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
         die();
     }
-    $name = $_POST['fullname'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phonenumber'];
-    $address = $_POST['address'];
-    $password = $_POST['password'];
-    $role_id = $_POST['role_id'];
-    $avatar = $_POST['avatar'];
-    if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
-        empty($role_id)) {
+    $name = $_POST['name'];
+    $category_id = $_POST['category_id'];
+    $brand_id = $_POST['brand_id'];
+    $price = $_POST['price'];
+    $number = $_POST['number'];
+    $promo_price = $_POST['promo_price'];
+    $thumbnail = $_POST['thumbnail'];
+    $des = $_POST['des'];
+    $status = $_POST['status'];
+    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
+        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products&action=update');
+        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
         die();
     }
-    updateProduct($id ,$name, $email, $phone_number, $address, $password, $role_id, $avatar);
-    push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products');
+    updateProduct($id ,$category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail,$des,$status);
+    push_notification('success', ['Chỉnh sửa sản phẩm thành công']);
+    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
 }
 
 
