@@ -35,7 +35,7 @@
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Tạo mới</button>
                         <button type="reset" class="btn btn-secondary">Làm lại</button>
-                        <a href="http://localhost/Nhom_7_DA1/?role=admin&mod=category" class="btn btn-default">Quay về</a>
+                        <a href="?role=admin&mod=category" class="btn btn-default">Quay về</a>
                     </div>
                 </form>
                 <!--end::Form-->

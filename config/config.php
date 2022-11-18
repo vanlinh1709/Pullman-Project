@@ -11,8 +11,7 @@
  * 
  */
 
-$config['base_url'] = "http://localhost/Nhom_7_DA1";
-const BASE_URL = "http://localhost/Nhom_7_DA1";
+$config['base_url'] = "http://localhost/pullman.com";
 
 $config['default_role'] = 'client';
 $config['default_module'] = 'home';

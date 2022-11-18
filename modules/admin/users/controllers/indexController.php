@@ -27,24 +27,24 @@ function createPostAction() {
     if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
         empty($role_id)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users&action=create');
+        header('Location: ?role=admin&mod=users&action=create');
         die();
     }
 //    echo __FILE__;
 //    var_dump($avatar['name']);
 //    die();
     if (isset($avatar)) {
-        move_uploaded_file($avatar['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/user/" . $avatar['name']);
+        move_uploaded_file($avatar['tmp_name'], "C:/xampp/htdocs/pullman.com/public/uploads/images/user/" . $avatar['name']);
     }
     createUser($name, $email, $phone_number, $address, $password, $role_id, $avatar['name']);
     push_notification('success', ['Tạo mới tài khoản thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
+    header('Location: ?role=admin&mod=users');
 }
 function deleteAction() {
     $id = $_GET['id_user'];
     deleteUser($id);
     push_notification('success', ['Xoá danh mục tài khoản thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
+    header('Location: ?role=admin&mod=users');
 }
 
 function showFormAction($id) {
@@ -57,7 +57,7 @@ function updateAction() {
     if ($user) {
         load_view('update', $data);
     } else {
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
+        header('Location: ?role=admin&mod=users');
     }
 }
 function updatePostAction() {
@@ -65,7 +65,7 @@ function updatePostAction() {
 //    echo $id;
         $user = get_user_by_id($id);
     if (!$user) {
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=user');
+        header('Location: ?role=admin&mod=user');
         die();
     }
     $name = $_POST['fullname'];
@@ -81,16 +81,16 @@ function updatePostAction() {
     if (empty($name) || empty($email) || empty($phone_number) || empty($address) || empty($password) ||
         empty($role_id)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users&action=update');
+        header('Location: ?role=admin&mod=users&action=update');
         die();
     }
     if($_FILES['avatar']['name'] != '') {
         $avatar = $_FILES['avatar']['name'];
-        move_uploaded_file($_FILES['avatar']['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/user/" . $avatar);
+        move_uploaded_file($_FILES['avatar']['tmp_name'], "C:/xampp/htdocs/pullman.com/public/uploads/images/user/" . $avatar);
     }
     updateUser($id ,$name, $email, $phone_number, $address, $password, $role_id, $avatar);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=users');
+    header('Location: ?role=admin&mod=users');
 }
 
 

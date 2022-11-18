@@ -31,21 +31,21 @@ function createPostAction() {
     if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
         empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
         push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
+        header('Location: ?role=admin&mod=product&action=create');
         die();
     }
     if (isset($thumbnail)) {
-        move_uploaded_file($thumbnail['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/product/" . $thumbnail['name']);
+        move_uploaded_file($thumbnail['tmp_name'], "C:/xampp/htdocs/pullman.com/public/uploads/images/product/" . $thumbnail['name']);
     }
     createProduct($category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail['name'],$des,$status);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
+    header('Location: ?role=admin&mod=product');
 }
 function deleteAction() {
     $id = $_GET['id_product'];
     deleteProduct($id);
     push_notification('success', ['Xoá sản phẩm  thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
+    header('Location: ?role=admin&mod=product');
 }
 
 function updateAction() {
@@ -61,7 +61,7 @@ function updateAction() {
     if ($product) {
         load_view('update', $data);
     } else {
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=products');
+        header('Location: ?role=admin&mod=products');
     }
 }
 function updatePostAction() {
@@ -69,7 +69,7 @@ function updatePostAction() {
 //    echo $id;
         $product = get_product_by_id($id);
     if (!$product) {
-        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
+        header('Location: ?role=admin&mod=product');
         die();
     }
     $name = $_POST['name'];
@@ -81,19 +81,19 @@ function updatePostAction() {
     $thumbnail = $product['thumbnail'];
     $des = $_POST['des'];
     $status = $_POST['status'];
-//    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
-//        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
-//        push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
-//        header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product&action=create');
-//        die();
-//    }
+    if (empty($name) || empty($category_id) || empty($brand_id) || empty($price) ||
+        empty($number) || empty($thumbnail) || empty($des) || empty($status)) {
+        push_notification('danger', ['Vui lòng nhập đầy đủ các trường']);
+        header('Location: ?role=admin&mod=product&action=create');
+        die();
+    }
     if($_FILES['thumbnail']['name'] != '') {
         $thumbnail = $_FILES['thumbnail']['name'];
-        move_uploaded_file($_FILES['thumbnail']['tmp_name'], "C:/xampp/htdocs/Nhom_7_DA1/public/uploads/images/product/" . $thumbnail);
+        move_uploaded_file($_FILES['thumbnail']['tmp_name'], "C:/xampp/htdocs/pullman.com/public/uploads/images/product/" . $thumbnail);
     }
     updateProduct($id ,$category_id,$brand_id,$name, $price, $number,$promo_price,$thumbnail,$des,$status);
     push_notification('success', ['Chỉnh sửa sản phẩm thành công']);
-    header('Location: http://localhost/Nhom_7_DA1/?role=admin&mod=product');
+    header('Location: ?role=admin&mod=product');
 }
 
 

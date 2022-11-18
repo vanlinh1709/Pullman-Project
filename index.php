@@ -5,7 +5,7 @@
  * app path
  * --------------------------------------------------------------------
  */
-
+const BASE_URL = 'http://localhost/pullman.com/';
 $app_path = dirname(__FILE__);
 define('APPPATH', $app_path);
 /*
