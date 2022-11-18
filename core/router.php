@@ -3,6 +3,8 @@
 
 $request_path = MODULESPATH . DIRECTORY_SEPARATOR . get_role() . DIRECTORY_SEPARATOR .  get_module() . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . get_controller().'Controller.php';
 //var_dump($request_path);
+//die();
+//require controller
 if (file_exists($request_path)) {
     require $request_path;
 } else {

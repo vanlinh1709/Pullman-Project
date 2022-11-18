@@ -72,9 +72,11 @@
                                     </ul>
                                 </div>
                                 <ul class="user-info-block">
-                                    <li><a href="my-account.html"><i class="fa fa-user-circle"></i> My Account</a></li>
-                                    <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
-                                    <li><a href="login-register.html"><i class="fa fa-sign-in"></i> Sign In</a></li>
+                                    <li><a href="my-account.html"><i class="fa fa-user-circle"></i><?php echo isset($_SESSION['auth']) ? $_SESSION['auth']['fullname'] : 'My accoutnt'?></a></li>
+
+                                    <li <?php echo isset($_SESSION['auth']) ? 'hidden' : ''?>><a href=""><i class="fa fa-credit-card" ></i>Sign up</a></li>
+
+                                    <li><a href="?role=client&mod=auth"><i class="fa fa-sign-in"></i><?php echo isset($_SESSION['auth']) ? 'Log out' : 'Sign in'?></a></li>
                                 </ul>
                             </div>
                         </div>

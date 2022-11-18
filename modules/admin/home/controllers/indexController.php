@@ -6,5 +6,6 @@ function construct() {
 }
 
 function indexAction() {
+//    echo '1';
     load_view('index');
 }
