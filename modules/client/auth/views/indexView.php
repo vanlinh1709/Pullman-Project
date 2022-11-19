@@ -11,10 +11,10 @@
                             <h4>Đăng nhập</h4>
                             <form action="" method="post">
                                 <div class="single-input-item">
-                                    <input type="email" name="username" placeholder="Nhập email" required />
+                                    <input type="text" name="email" placeholder="Nhập email"/>
                                 </div>
                                 <div class="single-input-item">
-                                    <input type="password" name="password" placeholder="Nhập mật khẩu của bạn" required />
+                                    <input type="password" name="password" placeholder="Nhập mật khẩu của bạn"/>
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -30,6 +30,13 @@
                                 <div class="single-input-item">
                                     <button class="btn btn-sqr">Đăng nhập</button>
                                 </div>
+                                <ul class="">
+                                    <?php foreach ($notifications as $msg) : ?>
+                                        <li class="text-<?php echo $msg['type'] ?>"><?php echo $msg['email'] ?></li>
+                                        <li class="text-<?php echo $msg['type'] ?> "><?php echo $msg['password'] ?></li>
+                                        <li class="text-<?php echo $msg['type'] ?> "><?php  echo isset($msg['user']) ? $msg['user'] : '' ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </form>
                         </div>
                     </div>

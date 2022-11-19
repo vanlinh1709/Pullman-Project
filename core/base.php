@@ -187,16 +187,55 @@ function get_template_part($name) {
         echo "Không tìm thấy {$path}";
     }
 }
-
-function push_notification($type, $msgs) {
-    if (!isset($_SESSION["notification"])) $_SESSION["notification"] = [];
-    $data = [];
-    $data["type"] = $type;
-    $data["msgs"] = $msgs;
-    $_SESSION["notification"][] = $data;
+//validate sign up
+function validator($email, $password) {
+    $flag = true;
+    $invalidEmail = validateEmail($email);
+    $invalidPassword = validatePassword($password);
+//    var_dump($invalidPassword, $invalidEmail);die();
+    //
+    $_SESSION['notification'] = [];
+    $msg = [];
+    $msg['type'] = 'danger';
+    $msg['email'] ='';
+    $msg['password'] = '';
+    if($invalidEmail) {
+        $msg['email'] = 'Để trống email hoặc nhập sai định dạng email!';
+        $flag = false;
+    }
+    if($invalidPassword) {
+        $msg['password'] = 'Để trống password!';
+        $flag = false;
+    }
+    $_SESSION['notification'][] = $msg;
+    echo '<pre>';
+//    var_dump($msg);die();
+    return $flag;
 }
-
+function validateEmail($email) {
+    $validEmail = filter_var($email, FILTER_VALIDATE_EMAIL);// Email hợp lệ -> true
+    if (empty($email) || !$validEmail) {
+        return true;//Email khong hop le
+    }
+    return false;
+}
+function validatePassword($password) {
+    if(empty($password)) {
+        return true;//Pass word khong hop le
+    }
+    return false;
+}
+function push_notification() {
+    $_SESSION['notification'] = [];
+    $msg['type'] ='danger';
+    $msg['email'] ='';
+    $msg['password'] = '';
+    $msg['user']= 'Tài khoản không tồn tại';
+    $_SESSION['notification'][] = $msg;
+}
+//Push cảnh báo đăng nhập admin
 function get_notification() {
+
     if (!isset($_SESSION["notification"])) $_SESSION["notification"] = [];
     $notification = $_SESSION["notification"];
     unset($_SESSION["notification"]);

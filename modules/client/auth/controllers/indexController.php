@@ -13,27 +13,25 @@ function indexAction() {
 }
 
 function indexPostAction() {
-//    echo '1';
-//    die();
-    // validation
-    $username = $_POST['username'];
+//    echo '1'; die();
+    $email = $_POST['email'];
     $password = $_POST['password'];
-//    var_dump($username, $password);
+//    var_dump($email, $password);
 //    die();
-    if (empty($username) || empty($password)) {
-        push_notification('danger', ['Vui lòng nhập đầy đủ thông tin tài khoản và mật khẩu']);
-        header('Location: ?role=admin&mod=auth');
+    //Xử lý validate.
+    $validInput = validator($email, $password);//Kiểm tra 2 trường và tạo thông báo lỗi bằng session
+//    var_dump($validInput);die();
+    if(!$validInput) {
+        header('Location: ?role=client&mod=auth');
+        exit();
     }
-    // xử lý đăng nhập
-        //$auth trả về 1 mảng chứa thong tin người dùng
-    $auth = get_auth_user($username, $password);
+    //Xác thực có tồn tại user.
+    $auth = get_auth_user($email, $password);
     if ($auth) {
-        push_auth($auth);//Tạo giá trị cho session['auth']
-//        var_dump($_SESSION['auth'];
-//        echo '1';
-        header('Location: ?role=client');//Chạy về modules mặc định là home
+        push_auth($auth);//Tạo giá trị cho session['auth'];
+        header('Location: ?role=client');//Chạy về modules mặc định là home.
     } else {
-        push_notification('danger', ['Tài khoản hoặc mật khẩu không chính xác']);
+        push_notification();
         header('Location: ?role=client&mod=auth');
     }
 }
