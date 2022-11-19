@@ -79,7 +79,7 @@
 
                                     <li <?php echo isset($_SESSION['auth']) ? 'hidden' : ''?>><a href=""><i class="fa fa-credit-card" ></i>Sign up</a></li>
 
-                                    <li><a href="?role=client&mod=auth"><i class="fa fa-sign-in"></i><?php echo isset($_SESSION['auth']) ? 'Log out' : 'Sign in'?></a></li>
+                                    <li><a href="<?php echo isset($_SESSION['auth']) ? '?role=client&mod=logout' : '?role=client&mod=auth'?>"><i class="fa fa-sign-in"></i><?php echo isset($_SESSION['auth']) ? 'Log out' : 'Sign in'?></a></li>
                                 </ul>
                             </div>
                         </div>

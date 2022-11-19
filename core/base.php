@@ -263,4 +263,7 @@ function request_auth($isLogin = true)
         die;
     }
 }
+function log_out() {
+
+}
 ?>
